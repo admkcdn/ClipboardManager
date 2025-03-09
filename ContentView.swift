@@ -27,11 +27,10 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity)
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color(nsColor: NSColor.windowBackgroundColor)))
                     .padding(.vertical, 4)
+                    .onTapGesture{
+                        clipboardManager.copyToClipboard(text)
+                    }
                     .contextMenu {
-                        Button("Panoya Kopyala") {
-                            clipboardManager.copyToClipboard(text)
-                        }
-
                         Button("Sil") {
                             clipboardManager.copiedTexts.removeAll { $0 == text }
                         }
